@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Transactions</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Sent Transactions</h1>
+        <ul>
+            {% for transaction in sent_transactions %}
+                <li>{{ transaction.amount }} to {{ transaction.recipient.username }} on {{ transaction.timestamp }}</li>
+            {% endfor %}
+        </ul>
+
+        <h1>Received Transactions</h1>
+        <ul>
+            {% for transaction in received_transactions %}
+                <li>{{ transaction.amount }} from {{ transaction.sender.username }} on {{ transaction.timestamp }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
